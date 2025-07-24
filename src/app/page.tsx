@@ -1,103 +1,318 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Calendar, Users, Sparkles, ArrowRight, MapPin, Clock, Star } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
-export default function Home() {
+export default function AustinOrigamiLanding() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 blur-xs">
+          <Image
+            src="/hero.png"
+            alt="Hero Image"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="absolute inset-0 z-0 opacity-50 bg-gradient-to-br from-purple-950 to-blue-950"/>
+
+        <div className="h-screen relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-9xl font-bold text-purple-200 mix-blend-color-dodge leading-tight">
+                  From flat to
+                  <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                    {" "}
+                    form
+                  </span>
+                </h1>
+                <p className="text-2xl text-transparent font-bold bg-clip-text bg-gradient-to-r from-gray-300 via-gray-300 to-gray-500 leading-relaxed max-w-lg">
+                  Explore Austin's most vibrant origami community.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="https://discord.gg/gj4G8nZF">
+                <Button size="lg" className="bg-white hover:bg-gray-300 text-black px-8">
+
+                  Join our Discord
+                  <ArrowRight className="ml-2 w-4 h-4"/>
+                </Button>
+                </Link>
+                <Link href="/gallery">
+                <Button variant="outline" size="lg" className="text-white hover:bg-white/30 border-transparent px-8 bg-transparent">
+                  View Gallery
+                </Button>
+                </Link>
+              </div>
+
+              <div className="flex items-center space-x-8 pt-4">
+                <div className="flex items-center space-x-2">
+                  <Users className="w-5 h-5 text-gray-200"/>
+                  <span className="text-sm text-gray-300">200+ Online Members</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Calendar className="w-5 h-5 text-gray-200"/>
+                  <span className="text-sm text-gray-300">Weekly Meetups</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Star className="w-5 h-5 text-gray-200"/>
+                  <span className="text-sm text-gray-300">All Skill Levels</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="about" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">What Do We Offer?</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Meet other folders, give back to the community, and learn new skills in a welcoming environment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900">Community Service</h3>
+                <p className="text-gray-600">
+                  Give back to the Austin community by sharing your love of origami with local schools, hospitals, and libraries.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900">Folding Community</h3>
+                <p className="text-gray-600">
+                  We host weekly meetups at UT Austin for current students and alumni of any skill level to fold together.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900">Fun Events</h3>
+                <p className="text-gray-600">
+                  We go on trips together, host social gatherings, organize hot pot nights, and more to build friendships and community.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section id="events" className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">Upcoming Events</h2>
+            <p className="text-xl text-gray-600">Join us for workshops, exhibitions, and community gatherings</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                    Workshop
+                  </Badge>
+                  <span className="text-sm text-gray-500">Jan 28</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Beginner's Crane Workshop</h3>
+                <p className="text-gray-600 text-sm">
+                  Learn the classic origami crane in this hands-on workshop perfect for newcomers.
+                </p>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4" />
+                    <span>5:00 PM</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span>RLP 0.106</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <Badge variant="secondary" className="bg-purple-100 text-purple-800">
+                    Exhibition
+                  </Badge>
+                  <span className="text-sm text-gray-500">Feb 5</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Monthly Showcase</h3>
+                <p className="text-gray-600 text-sm">
+                  Display your creations and admire the incredible work of fellow members.
+                </p>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4" />
+                    <span>6:00 PM</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span>RLP 0.106</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <Badge variant="secondary" className="bg-pink-100 text-pink-800">
+                    Advanced
+                  </Badge>
+                  <span className="text-sm text-gray-500">Feb 12</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Folding Follow-ups</h3>
+                <p className="text-gray-600 text-sm">
+                  Master intricate modular origami techniques with our expert instructors.
+                </p>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4" />
+                    <span>5:00 PM</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-4 h-4" />
+                    <span>The Union</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          <h2 className="text-4xl lg:text-5xl font-bold">Ready to start your origami journey?</h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Join Austin's premier origami community and discover the meditative art of paper folding.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 px-8">
+              Join Our Circle
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-gray-600 text-white hover:bg-gray-800 px-8 bg-transparent"
+            >
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-pink-500 rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-lg font-semibold text-gray-900">Austin Origami Circle</span>
+              </div>
+              <p className="text-gray-600 text-sm">Bringing the ancient art of paper folding to the heart of Texas.</p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold text-gray-900">Community</h3>
+              <div className="space-y-2 text-sm">
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  About Us
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Events
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Gallery
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Blog
+                </Link>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold text-gray-900">Resources</h3>
+              <div className="space-y-2 text-sm">
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Tutorials
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Patterns
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Supplies
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  FAQ
+                </Link>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold text-gray-900">Connect</h3>
+              <div className="space-y-2 text-sm">
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Contact
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Newsletter
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Social Media
+                </Link>
+                <Link href="#" className="block text-gray-600 hover:text-gray-900">
+                  Support
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-100 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Austin Origami Circle. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 sm:mt-0">
+              <Link href="#" className="text-sm text-gray-600 hover:text-gray-900">
+                Privacy
+              </Link>
+              <Link href="#" className="text-sm text-gray-600 hover:text-gray-900">
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
