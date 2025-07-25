@@ -3,7 +3,8 @@ import "@/app/globals.css"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
-// import { Toaster } from "@/components/ui/toaster"
+import Footer from "@/components/footer"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,7 +24,8 @@ export default function RootLayout({
     <ThemeProvider attribute="class" defaultTheme="light">
       <Navbar />
       <main>{children}</main>
-      { /*<Toaster /> */ }
+      <Toaster />
+      <Footer />
     </ThemeProvider>
     </body>
     </html>

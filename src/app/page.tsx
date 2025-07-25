@@ -82,40 +82,76 @@ export default function AustinOrigamiLanding() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
+            <Card className="relative border-0 shadow-sm bg-white hover:shadow-md transition-shadow group">
+              <div className="absolute inset-0 group-hover:blur-none blur-xs transition-all duration-300">
+                <Image
+                  src="/volunteer.webp"
+                  alt="Origami Community"
+                  fill
+                  sizes="100vw"
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute inset-0 z-0 opacity-50 rounded-lg bg-gradient-to-br from-pink-800 to-purple-900"/>
+              <div className="z-10 inset-0">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center mx-auto">
                   <Calendar className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Community Service</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold text-white">Community Service</h3>
+                <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
                   Give back to the Austin community by sharing your love of origami with local schools, hospitals, and libraries.
                 </p>
               </CardContent>
+              </div>
             </Card>
 
-            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
+            <Card className="relative border-0 shadow-sm bg-white hover:shadow-md transition-shadow group">
+              <div className="absolute inset-0 blur-xs group-hover:blur-none transition-all duration-300">
+                <Image
+                  src="/social.webp"
+                  alt="Origami Community"
+                  fill
+                  sizes="100vw"
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute inset-0 z-0 opacity-50 rounded-lg bg-gradient-to-br from-purple-800 to-blue-900"/>
+              <div className="z-10 inset-0">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto">
-                  <Sparkles className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-xl flex items-center justify-center mx-auto">
+                  <Users className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Folding Community</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold text-white">Folding Community</h3>
+                <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
                   We host weekly meetups at UT Austin for current students and alumni of any skill level to fold together.
                 </p>
               </CardContent>
+              </div>
             </Card>
 
-            <Card className="border-0 shadow-sm bg-white hover:shadow-md transition-shadow">
-              <CardContent className="p-8 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900">Fun Events</h3>
-                <p className="text-gray-600">
-                  We go on trips together, host social gatherings, organize hot pot nights, and more to build friendships and community.
-                </p>
-              </CardContent>
+            <Card className="relative border-0 shadow-sm bg-white hover:shadow-md transition-shadow group">
+              <div className="absolute inset-0 blur-xs group-hover:blur-none transition-all duration-300">
+                <Image
+                  src="/hotpot.webp"
+                  alt="Origami Community"
+                  fill
+                  sizes="100vw"
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute inset-0 z-0 opacity-50 rounded-lg bg-gradient-to-br from-blue-800 to-pink-900"/>
+              <div className="inset-0 z-10">
+                <CardContent className="p-8 text-center space-y-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto">
+                    <Sparkles className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Fun Events</h3>
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
+                    We go on trips together, host social gatherings, organize hot pot nights, and more to build friendships and community.
+                  </p>
+                </CardContent>
+              </div>
             </Card>
           </div>
         </div>
@@ -230,89 +266,6 @@ export default function AustinOrigamiLanding() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-pink-500 rounded-lg flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-lg font-semibold text-gray-900">Austin Origami Circle</span>
-              </div>
-              <p className="text-gray-600 text-sm">Bringing the ancient art of paper folding to the heart of Texas.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-900">Community</h3>
-              <div className="space-y-2 text-sm">
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  About Us
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Events
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Gallery
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Blog
-                </Link>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-900">Resources</h3>
-              <div className="space-y-2 text-sm">
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Tutorials
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Patterns
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Supplies
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  FAQ
-                </Link>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-900">Connect</h3>
-              <div className="space-y-2 text-sm">
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Contact
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Newsletter
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Social Media
-                </Link>
-                <Link href="#" className="block text-gray-600 hover:text-gray-900">
-                  Support
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-100 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600">© 2025 Austin Origami Circle. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link href="#" className="text-sm text-gray-600 hover:text-gray-900">
-                Privacy
-              </Link>
-              <Link href="#" className="text-sm text-gray-600 hover:text-gray-900">
-                Terms
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
