@@ -24,7 +24,6 @@ export default async function TeamPage() {
       next: { revalidate: 60 }, // ISR: revalidate every 60 seconds
     }
   );
-
   if (!res.ok) {
     console.error("Failed to fetch officers from Strapi");
     return <div className="text-center text-red-500">Failed to load officers.</div>;

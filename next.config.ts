@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'essential-flowers-5c236a3fba.media.strapiapp.com',
+        pathname: '/**'
+      }
     ],
   },
 };
