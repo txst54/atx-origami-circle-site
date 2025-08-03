@@ -1,11 +1,20 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Users, Sparkles, ArrowRight, MapPin, Clock, Star } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { format } from "date-fns"
+import { useEvents, getUpcomingEvents, getEventTypeBadgeClass } from "@/lib/strapi-events"
 
 export default function AustinOrigamiLanding() {
+  const { events, loading, error } = useEvents();
+
+  // Get upcoming events (next 3 events from today)
+  const upcomingEvents = getUpcomingEvents(events, 3);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -39,16 +48,16 @@ export default function AustinOrigamiLanding() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="https://discord.gg/gj4G8nZF">
-                <Button size="lg" className="bg-white hover:bg-gray-300 text-black px-8">
+                  <Button size="lg" className="bg-white hover:bg-gray-300 text-black px-8">
 
-                  Join our Discord
-                  <ArrowRight className="ml-2 w-4 h-4"/>
-                </Button>
+                    Join our Discord
+                    <ArrowRight className="ml-2 w-4 h-4"/>
+                  </Button>
                 </Link>
                 <Link href="/gallery">
-                <Button variant="outline" size="lg" className="text-white hover:bg-white/30 border-transparent px-8 bg-transparent">
-                  View Gallery
-                </Button>
+                  <Button variant="outline" size="lg" className="text-white hover:bg-white/30 border-transparent px-8 bg-transparent">
+                    View Gallery
+                  </Button>
                 </Link>
               </div>
 
@@ -94,15 +103,15 @@ export default function AustinOrigamiLanding() {
               </div>
               <div className="absolute inset-0 z-0 opacity-50 rounded-lg bg-gradient-to-br from-pink-800 to-purple-900"/>
               <div className="z-10 inset-0">
-              <CardContent className="p-8 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center mx-auto">
-                  <Calendar className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white">Community Service</h3>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
-                  Give back to the Austin community by sharing your love of origami with local schools, hospitals, and libraries.
-                </p>
-              </CardContent>
+                <CardContent className="p-8 text-center space-y-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center mx-auto">
+                    <Calendar className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Community Service</h3>
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
+                    Give back to the Austin community by sharing your love of origami with local schools, hospitals, and libraries.
+                  </p>
+                </CardContent>
               </div>
             </Card>
 
@@ -118,15 +127,15 @@ export default function AustinOrigamiLanding() {
               </div>
               <div className="absolute inset-0 z-0 opacity-50 rounded-lg bg-gradient-to-br from-purple-800 to-blue-900"/>
               <div className="z-10 inset-0">
-              <CardContent className="p-8 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-xl flex items-center justify-center mx-auto">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white">Folding Community</h3>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
-                  We host weekly meetups at UT Austin for current students and alumni of any skill level to fold together.
-                </p>
-              </CardContent>
+                <CardContent className="p-8 text-center space-y-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-xl flex items-center justify-center mx-auto">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Folding Community</h3>
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-300 ">
+                    We host weekly meetups at UT Austin for current students and alumni of any skill level to fold together.
+                  </p>
+                </CardContent>
               </div>
             </Card>
 
@@ -165,82 +174,68 @@ export default function AustinOrigamiLanding() {
             <p className="text-xl text-gray-600">Join us for workshops, exhibitions, and community gatherings</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary" className="bg-orange-100 text-orange-800">
-                    Workshop
-                  </Badge>
-                  <span className="text-sm text-gray-500">Jan 28</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Beginner's Crane Workshop</h3>
-                <p className="text-gray-600 text-sm">
-                  Learn the classic origami crane in this hands-on workshop perfect for newcomers.
-                </p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4" />
-                    <span>5:00 PM</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>RLP 0.106</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          {loading ? (
+            <div className="text-center py-8">
+              <div className="text-lg text-gray-600">Loading events...</div>
+            </div>
+          ) : error ? (
+            <div className="text-center py-8">
+              <div className="text-red-500 mb-4">{error}</div>
+              <p className="text-gray-600">Please check back later for upcoming events.</p>
+            </div>
+          ) : upcomingEvents.length === 0 ? (
+            <div className="text-center py-8">
+              <p className="text-gray-600 mb-4">No upcoming events scheduled at the moment.</p>
+              <Link href="/calendar">
+                <Button variant="outline">View Full Calendar</Button>
+              </Link>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {upcomingEvents.map((event) => (
+                <Card key={event.id} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <Badge
+                        variant="secondary"
+                        className={getEventTypeBadgeClass(event.type)}
+                      >
+                        {event.type}
+                      </Badge>
+                      <span className="text-sm text-gray-500">
+                        {format(event.date, "MMM d")}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">{event.title}</h3>
+                    <p className="text-gray-600 text-sm">
+                      {event.description}
+                    </p>
+                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{event.startTime}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <MapPin className="w-4 h-4" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
-            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary" className="bg-purple-100 text-purple-800">
-                    Exhibition
-                  </Badge>
-                  <span className="text-sm text-gray-500">Feb 5</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Monthly Showcase</h3>
-                <p className="text-gray-600 text-sm">
-                  Display your creations and admire the incredible work of fellow members.
-                </p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4" />
-                    <span>6:00 PM</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>RLP 0.106</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-gray-200 hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary" className="bg-pink-100 text-pink-800">
-                    Advanced
-                  </Badge>
-                  <span className="text-sm text-gray-500">Feb 12</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Folding Follow-ups</h3>
-                <p className="text-gray-600 text-sm">
-                  Master intricate modular origami techniques with our expert instructors.
-                </p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4" />
-                    <span>5:00 PM</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>The Union</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          {upcomingEvents.length > 0 && (
+            <div className="text-center mt-12">
+              <Link href="/calendar">
+                <Button variant="outline" size="lg">
+                  View Full Calendar
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -252,10 +247,12 @@ export default function AustinOrigamiLanding() {
             Join Austin's premier origami community and discover the meditative art of paper folding.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 px-8">
-              Join Our Circle
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <Link href="https://discord.gg/gj4G8nZF">
+              <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 px-8">
+                Join Our Circle
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
             <Button
               variant="outline"
               size="lg"

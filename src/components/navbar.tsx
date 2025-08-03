@@ -18,7 +18,6 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Team", path: "/team" },
-    { name: "Gallery", path: "/gallery" },
     { name: "Calendar", path: "/calendar" },
     { name: "Contact", path: "/contact" },
   ]
@@ -49,9 +48,11 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Button size="sm" className="bg-gray-900 hover:bg-gray-800">
-              Join Discord
-            </Button>
+            <Link href="https://discord.gg/gj4G8nZF">
+              <Button size="sm" className="bg-gray-900 hover:bg-gray-800">
+                Join Discord
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Navigation */}
